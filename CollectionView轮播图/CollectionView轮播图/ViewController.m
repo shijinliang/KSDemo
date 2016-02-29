@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-
+#import "CollectionImageView.h"
+#define ScreenSize      [UIScreen mainScreen].bounds.size
 @interface ViewController ()
 
 @end
@@ -19,6 +20,9 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor greenColor];
+    
+    CollectionImageView *view = [[CollectionImageView alloc]initWithFrame:CGRectMake(0, 100, ScreenSize.width, 300)];
+    [self.view addSubview:view];
 }
 
 - (void)didReceiveMemoryWarning {
