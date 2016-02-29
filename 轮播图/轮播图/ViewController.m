@@ -25,6 +25,11 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.view addSubview:self.scrollImageView];
+    
+    //这样操作可以释放scrollImageView
+    [self.scrollImageView removeFromSuperview];
+    [self.scrollImageView.timer invalidate];
+    self.scrollImageView = nil;
 }
 
 - (void)didReceiveMemoryWarning {

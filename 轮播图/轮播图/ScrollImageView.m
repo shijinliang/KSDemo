@@ -11,7 +11,7 @@
 @interface ScrollImageView()<UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIPageControl *pageControl;
-@property (nonatomic, strong) NSTimer *timer;
+
 @end
 
 const static NSInteger imageCount = 5;
@@ -28,6 +28,11 @@ const static NSInteger imageCount = 5;
         [self addTimer];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    NSLog(@"%s",__func__);
 }
 
 #pragma private Method

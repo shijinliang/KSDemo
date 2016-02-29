@@ -11,5 +11,5 @@
 #define ScrollWidth     ScreenSize.width
 #define ScrollHeight    450
 @interface ScrollImageView : UIView
-
+@property (nonatomic, strong) NSTimer *timer;
 @end
