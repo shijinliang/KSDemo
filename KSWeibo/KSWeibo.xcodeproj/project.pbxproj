@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3CF0588B1C85C04B008DD878 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF0588A1C85C04B008DD878 /* main.m */; };
 		3CF0588E1C85C04B008DD878 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF0588D1C85C04B008DD878 /* AppDelegate.m */; };
 		3CF058971C85C04B008DD878 /* KSWeibo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CF058951C85C04B008DD878 /* KSWeibo.xcdatamodeld */; };
 		3CF058991C85C04B008DD878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF058981C85C04B008DD878 /* Assets.xcassets */; };
 		3CF058A51C85C830008DD878 /* KSTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF058A41C85C830008DD878 /* KSTabBarController.m */; };
+		3CF058A81C85D221008DD878 /* KSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF058A71C85D221008DD878 /* KSTabBar.m */; };
+		3CF058AC1C85D3C0008DD878 /* UIView+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF058AB1C85D3C0008DD878 /* UIView+KSExtension.m */; };
+		3CF058AF1C85D609008DD878 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF058AE1C85D609008DD878 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3CF058861C85C04B008DD878 /* KSWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3CF0588A1C85C04B008DD878 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3CF0588C1C85C04B008DD878 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CF0588D1C85C04B008DD878 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3CF058961C85C04B008DD878 /* KSWeibo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KSWeibo.xcdatamodel; sourceTree = "<group>"; };
@@ -24,6 +25,12 @@
 		3CF0589D1C85C04B008DD878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CF058A31C85C830008DD878 /* KSTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTabBarController.h; sourceTree = "<group>"; };
 		3CF058A41C85C830008DD878 /* KSTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSTabBarController.m; sourceTree = "<group>"; };
+		3CF058A61C85D221008DD878 /* KSTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTabBar.h; sourceTree = "<group>"; };
+		3CF058A71C85D221008DD878 /* KSTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSTabBar.m; sourceTree = "<group>"; };
+		3CF058AA1C85D3C0008DD878 /* UIView+KSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+KSExtension.h"; sourceTree = "<group>"; };
+		3CF058AB1C85D3C0008DD878 /* UIView+KSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KSExtension.m"; sourceTree = "<group>"; };
+		3CF058AE1C85D609008DD878 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3CF058B01C85D61A008DD878 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,20 +67,33 @@
 				3CF0588D1C85C04B008DD878 /* AppDelegate.m */,
 				3CF058A31C85C830008DD878 /* KSTabBarController.h */,
 				3CF058A41C85C830008DD878 /* KSTabBarController.m */,
+				3CF058A61C85D221008DD878 /* KSTabBar.h */,
+				3CF058A71C85D221008DD878 /* KSTabBar.m */,
+				3CF058A91C85D3A1008DD878 /* Category */,
 				3CF0589D1C85C04B008DD878 /* Info.plist */,
 				3CF058951C85C04B008DD878 /* KSWeibo.xcdatamodeld */,
 				3CF058981C85C04B008DD878 /* Assets.xcassets */,
-				3CF058891C85C04B008DD878 /* Supporting Files */,
+				3CF058AD1C85D609008DD878 /* Supporting Files */,
 			);
 			path = KSWeibo;
 			sourceTree = "<group>";
 		};
-		3CF058891C85C04B008DD878 /* Supporting Files */ = {
+		3CF058A91C85D3A1008DD878 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				3CF0588A1C85C04B008DD878 /* main.m */,
+				3CF058AA1C85D3C0008DD878 /* UIView+KSExtension.h */,
+				3CF058AB1C85D3C0008DD878 /* UIView+KSExtension.m */,
 			);
-			name = "Supporting Files";
+			path = Category;
+			sourceTree = "<group>";
+		};
+		3CF058AD1C85D609008DD878 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3CF058AE1C85D609008DD878 /* main.m */,
+				3CF058B01C85D61A008DD878 /* PrefixHeader.pch */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,10 +165,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CF058AC1C85D3C0008DD878 /* UIView+KSExtension.m in Sources */,
 				3CF058971C85C04B008DD878 /* KSWeibo.xcdatamodeld in Sources */,
+				3CF058A81C85D221008DD878 /* KSTabBar.m in Sources */,
 				3CF058A51C85C830008DD878 /* KSTabBarController.m in Sources */,
+				3CF058AF1C85D609008DD878 /* main.m in Sources */,
 				3CF0588E1C85C04B008DD878 /* AppDelegate.m in Sources */,
-				3CF0588B1C85C04B008DD878 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +262,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/KSWeibo/Supporting Files/PrefixHeader.pch";
 				INFOPLIST_FILE = KSWeibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -253,6 +276,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/KSWeibo/Supporting Files/PrefixHeader.pch";
 				INFOPLIST_FILE = KSWeibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

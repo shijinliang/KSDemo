@@ -7,11 +7,15 @@
 //
 
 #import "KSTabBarController.h"
+#import "KSTabBar.h"
 
 @implementation KSTabBarController
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    KSTabBar *tabBar = [[KSTabBar alloc] init];
+    [self setValue:tabBar forKey:@"tabBar"];
     
     UIViewController *vc1 = [[UIViewController alloc] init];
     [self addChildViewController:vc1 imageName:@"tabbar_home" title:@"首页"];

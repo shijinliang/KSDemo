@@ -1,0 +1,14 @@
+//
+//  PrefixHeader.pch
+//  KSWeibo
+//
+//  Created by xiaoshi on 16/3/1.
+//  Copyright © 2016年 kamy. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "UIView+KSExtension.h"
+
+#endif /* PrefixHeader_pch */
