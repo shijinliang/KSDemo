@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KSTabBar : UITabBar
+@class KSTabBar;
 
+typedef void(^clickPlusBtn)(UIButton *btn);
+
+@protocol KSTabBarDelegate <NSObject, UITabBarDelegate>
+
+- (void)tabBar:(KSTabBar *)tabBar clickPlusBtn:(UIButton *)clickBtn;
+
+@end
+
+@interface KSTabBar : UITabBar
+@property (nonatomic, assign) id<KSTabBarDelegate> delegate;
 @end

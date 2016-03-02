@@ -9,12 +9,17 @@
 #import "KSTabBarController.h"
 #import "KSTabBar.h"
 
+@interface KSTabBarController()<KSTabBarDelegate>
+
+@end
+
 @implementation KSTabBarController
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     KSTabBar *tabBar = [[KSTabBar alloc] init];
+    tabBar.delegate = self;
     [self setValue:tabBar forKey:@"tabBar"];
     
     UIViewController *vc1 = [[UIViewController alloc] init];
@@ -37,6 +42,12 @@
     childController.tabBarItem.selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_selected",imageName]];
     childController.tabBarItem.title = title;
     [self addChildViewController:childController];
+}
+
+#pragma mark - KSTabBar delegate
+- (void)tabBar:(KSTabBar *)tabBar clickPlusBtn:(UIButton *)clickBtn
+{
+    NSLog(@"点击加号");
 }
 
 @end

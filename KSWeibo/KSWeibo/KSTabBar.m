@@ -13,6 +13,9 @@
 @end
 
 @implementation KSTabBar
+
+@dynamic delegate;
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -23,7 +26,7 @@
         [plusBtn setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
         [plusBtn setImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
         [plusBtn setImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
-        
+        [plusBtn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
         //设置button的大小
         plusBtn.size = plusBtn.currentBackgroundImage.size;
         [self addSubview:plusBtn];
@@ -51,6 +54,13 @@
             }
             index ++;
         }
+    }
+}
+
+- (void)clickBtn:(UIButton *)btn
+{
+    if ([self.delegate respondsToSelector:@selector(tabBar:clickPlusBtn:)]) {
+        [self.delegate tabBar:self clickPlusBtn:btn];
     }
 }
 @end
