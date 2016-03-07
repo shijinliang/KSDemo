@@ -19,7 +19,9 @@
 #pragma mark - ♻️ LifeCycle Method
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    /*
+     慕少锋 测试一下，是不是可以提交！
+     */
     // Do any additional setup after loading the view, typically from a nib.
     self.title = @"轮播图（无限循环）";
     self.automaticallyAdjustsScrollViewInsets = NO;
