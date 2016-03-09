@@ -1,0 +1,17 @@
+//
+//  PrefixHeader.pch
+//  画板
+//
+//  Created by xiaoshi on 16/3/9.
+//  Copyright © 2016年 kamy. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#define ScreenSize      [UIScreen mainScreen].bounds.size
+#define ScreenWidth     ScreenSize.width
+#define ScreenHeight     ScreenSize.height
+#define StatusHeight    [[UIApplication sharedApplication] statusBarFrame].size.height
+
+#endif /* PrefixHeader_pch */
