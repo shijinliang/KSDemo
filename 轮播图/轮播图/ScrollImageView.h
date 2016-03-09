@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ScrollImageView;
 
+@protocol ScrollImageViewDelegate <NSObject>
+-(void)scrollImageView:(ScrollImageView *)srollImageView didTapImageView:(UIImageView *)image atIndex:(NSInteger)index;
+@end
 @interface ScrollImageView : UIView
+@property (nonatomic,unsafe_unretained)id<ScrollImageViewDelegate> delegate;
 -(instancetype)initWithFrame:(CGRect)frame andPictureUrls:(NSArray *)urls andPlaceHolderImages:(NSArray *)images;
 @end

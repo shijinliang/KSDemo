@@ -47,20 +47,35 @@
     
     //第一张图片(向前拖拽，为了循环，第一张图应该和显示的最后一张图一样)
     UIImageView *firstImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SELF_WIDTH, SELF_HEIGHT)];
+    firstImage.userInteractionEnabled = YES;
     firstImage.image = [UIImage imageNamed:[_dataSourcePlaceImages firstObject]];
+    firstImage.tag = 11;
     [self.scrollView addSubview:firstImage];
+    
+    UITapGestureRecognizer * tapFirst = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapTheImageView:)];
+    [firstImage addGestureRecognizer:tapFirst];
     
     //最后一张图片(向后拖拽，为了循环，最后一张图应该和显示的第一张图一样)
     UIImageView *lastImage = [[UIImageView alloc] initWithFrame:CGRectMake((_imageCount + 1) * SELF_WIDTH, 0, SELF_WIDTH, SELF_HEIGHT)];
     lastImage.image = [UIImage imageNamed:[_dataSourcePlaceImages lastObject]];
+    lastImage.tag = 22;
     [self.scrollView addSubview:lastImage];
+    
+    UITapGestureRecognizer * tapLast = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapTheImageView:)];
+    [lastImage addGestureRecognizer:tapLast];
+    
     //第二张图 → 倒数第二张图
     //这里用最少的那个数组
     NSArray * array = _dataSourcePlaceImages.count<_dataSourceUrls.count?_dataSourcePlaceImages:_dataSourceUrls;
     for (NSInteger i = 0; i < array.count; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_dataSourcePlaceImages[i]]];
         imageView.frame = CGRectMake(SELF_WIDTH * (i + 1), 0, SELF_WIDTH, SELF_HEIGHT);
+        imageView.userInteractionEnabled = YES;
+        imageView.tag = i + 33;
         [self.scrollView addSubview:imageView];
+        
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapTheImageView:)];
+        [imageView addGestureRecognizer:tap];
     }
     
     //开始显示第二张图片
@@ -101,11 +116,32 @@
         [self.scrollView setContentOffset:CGPointMake(_imageCount * scrollWidth, 0) animated:NO];
     }
 }
+#pragma mark - scrollViewTapGesture method
+-(void)tapTheImageView:(UITapGestureRecognizer *)gesture
+{
+    UIImageView * imageView = (UIImageView *)gesture.view;
+    if (_delegate && [_delegate respondsToSelector:@selector(scrollImageView:didTapImageView:atIndex:)])
+    {
+        NSInteger index ;
+        NSArray * array = _dataSourcePlaceImages.count<_dataSourceUrls.count?_dataSourcePlaceImages:_dataSourceUrls;
+        if (imageView.tag == 11)
+        {
+            index = 0;
+        }else if(imageView.tag == 22)
+        {
+            index = array.count-1;
+        }else
+        {
+            index = imageView.tag - 33;
+        }
+        [_delegate scrollImageView:self didTapImageView:imageView atIndex:index];
+    }
+    
+}
 
 #pragma mark - ScrollView Delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSLog(@"滚动");
     CGFloat scrollWidth = self.scrollView.frame.size.width;
     NSInteger index = (self.scrollView.contentOffset.x + scrollWidth * 0.5) / scrollWidth;
     if (index == _imageCount + 2) {
@@ -136,7 +172,6 @@
  */
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    NSLog(@"滚动结束");
     //此方法，
     [self scrollViewFinish:scrollView];
 }
@@ -146,7 +181,6 @@
  */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    NSLog(@"减速至滚动停止");
     [self scrollViewFinish:scrollView];
 }
 

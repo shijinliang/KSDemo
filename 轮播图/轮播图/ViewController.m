@@ -12,7 +12,7 @@
 #import "ViewController.h"
 #import "ScrollImageView.h"
 
-@interface ViewController ()<UIScrollViewDelegate>
+@interface ViewController ()<UIScrollViewDelegate,ScrollImageViewDelegate>
 
 @property (nonatomic, strong)ScrollImageView *scrollImageView;
 
@@ -42,8 +42,13 @@
         NSArray * dataUrls = @[@"http://",@"http://",@"http://",@"http://"];
         NSArray * dataPics = @[@"icc1",@"icc2",@"icc3",@"icc4",@"icc5"];
         _scrollImageView = [[ScrollImageView alloc] initWithFrame:CGRectMake(0, 64, ScrollWidth, ScrollHeight)andPictureUrls:dataUrls andPlaceHolderImages:dataPics];
+        _scrollImageView.delegate = self;
     }
     return _scrollImageView;
 }
-
+#pragma mark -----scrollImageViewDelegate
+-(void)scrollImageView:(ScrollImageView *)srollImageView didTapImageView:(UIImageView *)image atIndex:(NSInteger)index
+{
+    NSLog(@"点击的是第%zd个图片，该图片是:%@",index,image);
+}
 @end
