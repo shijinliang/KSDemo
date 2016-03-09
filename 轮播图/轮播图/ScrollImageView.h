@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#define ScreenSize      [UIScreen mainScreen].bounds.size
-#define ScrollWidth     ScreenSize.width
-#define ScrollHeight    450
-@interface ScrollImageView : UIView
 
+@interface ScrollImageView : UIView
+-(instancetype)initWithFrame:(CGRect)frame andPictureUrls:(NSArray *)urls andPlaceHolderImages:(NSArray *)images;
 @end

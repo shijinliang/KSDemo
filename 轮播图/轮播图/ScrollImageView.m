@@ -5,23 +5,33 @@
 //  Created by xiaoshi on 16/2/17.
 //  Copyright © 2016年 kamy. All rights reserved.
 //
-
+#define SELF_WIDTH self.frame.size.width
+#define SELF_HEIGHT self.frame.size.height
+/*
+ 个人觉得，里面的图片大小应该与它的父试图大小相一致，而不是用屏幕宽度
+ */
 #import "ScrollImageView.h"
 
 @interface ScrollImageView()<UIScrollViewDelegate>
-@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIScrollView  *scrollView;
 @property (nonatomic, strong) UIPageControl *pageControl;
-@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) NSTimer       *timer;
+@property (nonatomic, strong) NSArray       *dataSourceUrls;//url的数据源
+@property (nonatomic, strong) NSArray       *dataSourcePlaceImages;//预留图片的数据源
+@property (nonatomic, assign) NSInteger       imageCount;
 @end
 
-const static NSInteger imageCount = 5;
-
 @implementation ScrollImageView
-
-- (instancetype)initWithFrame:(CGRect)frame
+-(instancetype)initWithFrame:(CGRect)frame andPictureUrls:(NSArray *)urls andPlaceHolderImages:(NSArray *)images
 {
-    self = [super initWithFrame:frame];
-    if (self) {
+    self = [self initWithFrame:frame];
+    if (self)
+    {
+        _dataSourcePlaceImages = [NSArray arrayWithArray:images];
+        _dataSourceUrls = [NSArray arrayWithArray:urls];
+        //图片的个数应该取决于最小的那一个 防止数组传入的个数不一致导致崩溃
+        _imageCount = _dataSourcePlaceImages.count<_dataSourceUrls.count?_dataSourcePlaceImages.count:_dataSourceUrls.count;
+        
         [self addSubview:self.scrollView];
         [self addSubview:self.pageControl];
         [self initScrollViewImage];
@@ -30,28 +40,32 @@ const static NSInteger imageCount = 5;
     return self;
 }
 
+
 #pragma private Method
 - (void)initScrollViewImage
 {
+    
     //第一张图片(向前拖拽，为了循环，第一张图应该和显示的最后一张图一样)
-    UIImageView *firstImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icc5"]];
-    firstImage.frame = CGRectMake(0, 0, ScrollWidth, ScrollHeight);
+    UIImageView *firstImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SELF_WIDTH, SELF_HEIGHT)];
+    firstImage.image = [UIImage imageNamed:[_dataSourcePlaceImages firstObject]];
     [self.scrollView addSubview:firstImage];
     
     //最后一张图片(向后拖拽，为了循环，最后一张图应该和显示的第一张图一样)
-    UIImageView *lastImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icc1"]];
-    lastImage.frame = CGRectMake((imageCount + 1) * ScrollWidth, 0, ScrollWidth, ScrollHeight);
+    UIImageView *lastImage = [[UIImageView alloc] initWithFrame:CGRectMake((_imageCount + 1) * SELF_WIDTH, 0, SELF_WIDTH, SELF_HEIGHT)];
+    lastImage.image = [UIImage imageNamed:[_dataSourcePlaceImages lastObject]];
     [self.scrollView addSubview:lastImage];
     //第二张图 → 倒数第二张图
-    for (NSInteger i = 0; i < imageCount; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"icc%ld",i + 1]]];
-        imageView.frame = CGRectMake(ScrollWidth * (i + 1), 0, ScrollWidth, ScrollHeight);
+    //这里用最少的那个数组
+    NSArray * array = _dataSourcePlaceImages.count<_dataSourceUrls.count?_dataSourcePlaceImages:_dataSourceUrls;
+    for (NSInteger i = 0; i < array.count; i++) {
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_dataSourcePlaceImages[i]]];
+        imageView.frame = CGRectMake(SELF_WIDTH * (i + 1), 0, SELF_WIDTH, SELF_HEIGHT);
         [self.scrollView addSubview:imageView];
     }
     
     //开始显示第二张图片
-    self.scrollView.contentOffset = CGPointMake(ScrollWidth, 0);
-    self.scrollView.contentSize = CGSizeMake((imageCount + 2) * ScrollWidth, 0);
+    self.scrollView.contentOffset = CGPointMake(SELF_WIDTH, 0);
+    self.scrollView.contentSize = CGSizeMake((_imageCount + 2) * SELF_WIDTH, 0);
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.pagingEnabled = YES;
 }
@@ -67,7 +81,7 @@ const static NSInteger imageCount = 5;
 {
     CGFloat scrollWidth = self.scrollView.frame.size.width;
     NSInteger index = self.pageControl.currentPage;
-    if (index == imageCount + 1) {
+    if (index == _imageCount + 1) {
         index = 0;
     } else {
         index ++;
@@ -79,12 +93,12 @@ const static NSInteger imageCount = 5;
 {
     CGFloat scrollWidth = self.scrollView.frame.size.width;
     NSInteger index = (self.scrollView.contentOffset.x + scrollWidth * 0.5) / scrollWidth;
-    if (index == imageCount + 1) {
+    if (index == _imageCount + 1) {
         //显示最后一张的时候，强制设置为第二张（也就是轮播图的第一张），这样就开始无限循环了
         [self.scrollView setContentOffset:CGPointMake(scrollWidth, 0) animated:NO];
     } else if (index == 0) {
         //显示第一张的时候，强制设置为倒数第二张（轮播图最后一张），实现倒序无限循环
-        [self.scrollView setContentOffset:CGPointMake(imageCount * scrollWidth, 0) animated:NO];
+        [self.scrollView setContentOffset:CGPointMake(_imageCount * scrollWidth, 0) animated:NO];
     }
 }
 
@@ -94,10 +108,10 @@ const static NSInteger imageCount = 5;
     NSLog(@"滚动");
     CGFloat scrollWidth = self.scrollView.frame.size.width;
     NSInteger index = (self.scrollView.contentOffset.x + scrollWidth * 0.5) / scrollWidth;
-    if (index == imageCount + 2) {
+    if (index == _imageCount + 2) {
         index = 1;
     } else if (index == 0) {
-        index = imageCount;
+        index = _imageCount;
     }
     self.pageControl.currentPage = index - 1;
 }
@@ -140,7 +154,8 @@ const static NSInteger imageCount = 5;
 - (UIScrollView *)scrollView
 {
     if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, ScrollWidth, ScrollHeight)];
+        //我觉得它的大小应该和它父试图有关联
+        _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, SELF_WIDTH, SELF_HEIGHT)];
         _scrollView.delegate = self;
     }
     return _scrollView;
@@ -149,8 +164,9 @@ const static NSInteger imageCount = 5;
 - (UIPageControl *)pageControl
 {
     if (!_pageControl) {
-        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake((ScrollWidth - 100) * 0.5f, ScrollHeight - 100, 100, 20)];
-        _pageControl.numberOfPages = imageCount;
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake((SELF_WIDTH - 100) * 0.5f, SELF_HEIGHT - 40, 100, 20)];
+        _pageControl.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin;
+        _pageControl.numberOfPages = _imageCount;
         _pageControl.currentPageIndicatorTintColor = [UIColor redColor];
         _pageControl.pageIndicatorTintColor = [UIColor yellowColor];
         _pageControl.currentPage = 0;
