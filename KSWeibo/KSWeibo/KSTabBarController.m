@@ -8,6 +8,8 @@
 
 #import "KSTabBarController.h"
 #import "KSTabBar.h"
+#import "KSNavigationController.h"
+#import "KSTitleButton.h"
 
 @interface KSTabBarController()<KSTabBarDelegate>
 
@@ -22,7 +24,15 @@
     tabBar.delegate = self;
     [self setValue:tabBar forKey:@"tabBar"];
     
-    UIViewController *vc1 = [[UIViewController alloc] init];
+    UIViewController *vc1 = [[KSNavigationController alloc]initWithRootViewController:[[UIViewController alloc] init]];
+    KSTitleButton *titleBtn = [KSTitleButton buttonWithType:UIButtonTypeCustom];
+    [titleBtn setTitle:@"首页" forState:UIControlStateNormal];
+    [titleBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [titleBtn setImage:[UIImage imageNamed:@"tableview_pull_refresh"] forState:UIControlStateNormal];
+    [titleBtn sizeToFit];
+    [titleBtn setBackgroundColor:[UIColor yellowColor]];
+    vc1.navigationItem.titleView = titleBtn;
+    
     [self addChildViewController:vc1 imageName:@"tabbar_home" title:@"首页"];
     UIViewController *vc2 = [[UIViewController alloc] init];
     [self addChildViewController:vc2 imageName:@"tabbar_message_center" title:@"消息"];
