@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CEF4D5C1C92879700166CF6 /* KSHomeViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEF4D5B1C92879700166CF6 /* KSHomeViewCtrl.m */; };
 		3CF0588E1C85C04B008DD878 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF0588D1C85C04B008DD878 /* AppDelegate.m */; };
 		3CF058971C85C04B008DD878 /* KSWeibo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CF058951C85C04B008DD878 /* KSWeibo.xcdatamodeld */; };
 		3CF058991C85C04B008DD878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF058981C85C04B008DD878 /* Assets.xcassets */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3CEF4D5A1C92879700166CF6 /* KSHomeViewCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHomeViewCtrl.h; sourceTree = "<group>"; };
+		3CEF4D5B1C92879700166CF6 /* KSHomeViewCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSHomeViewCtrl.m; sourceTree = "<group>"; };
 		3CF058861C85C04B008DD878 /* KSWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF0588C1C85C04B008DD878 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CF0588D1C85C04B008DD878 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -75,6 +78,8 @@
 				3CF058A41C85C830008DD878 /* KSTabBarController.m */,
 				3CFD70641C8EF42800AE4DEC /* KSNavigationController.h */,
 				3CFD70651C8EF42800AE4DEC /* KSNavigationController.m */,
+				3CEF4D5A1C92879700166CF6 /* KSHomeViewCtrl.h */,
+				3CEF4D5B1C92879700166CF6 /* KSHomeViewCtrl.m */,
 				3CF058A91C85D3A1008DD878 /* Category */,
 				3CF0589D1C85C04B008DD878 /* Info.plist */,
 				3CF058951C85C04B008DD878 /* KSWeibo.xcdatamodeld */,
@@ -177,6 +182,7 @@
 			files = (
 				3CFD70661C8EF42800AE4DEC /* KSNavigationController.m in Sources */,
 				3CF058AC1C85D3C0008DD878 /* UIView+KSExtension.m in Sources */,
+				3CEF4D5C1C92879700166CF6 /* KSHomeViewCtrl.m in Sources */,
 				3CFD70631C8EF3F000AE4DEC /* KSTabBar.m in Sources */,
 				3CF058971C85C04B008DD878 /* KSWeibo.xcdatamodeld in Sources */,
 				3CF058A51C85C830008DD878 /* KSTabBarController.m in Sources */,
