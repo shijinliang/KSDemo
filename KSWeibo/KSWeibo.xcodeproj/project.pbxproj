@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3CEF4D5C1C92879700166CF6 /* KSHomeViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEF4D5B1C92879700166CF6 /* KSHomeViewCtrl.m */; };
+		3CEF4D5F1C928F8300166CF6 /* UIBarButtonItem+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEF4D5E1C928F8300166CF6 /* UIBarButtonItem+KSExtension.m */; };
 		3CF0588E1C85C04B008DD878 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF0588D1C85C04B008DD878 /* AppDelegate.m */; };
 		3CF058971C85C04B008DD878 /* KSWeibo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CF058951C85C04B008DD878 /* KSWeibo.xcdatamodeld */; };
 		3CF058991C85C04B008DD878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF058981C85C04B008DD878 /* Assets.xcassets */; };
@@ -22,6 +23,8 @@
 /* Begin PBXFileReference section */
 		3CEF4D5A1C92879700166CF6 /* KSHomeViewCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHomeViewCtrl.h; sourceTree = "<group>"; };
 		3CEF4D5B1C92879700166CF6 /* KSHomeViewCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSHomeViewCtrl.m; sourceTree = "<group>"; };
+		3CEF4D5D1C928F8300166CF6 /* UIBarButtonItem+KSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+KSExtension.h"; sourceTree = "<group>"; };
+		3CEF4D5E1C928F8300166CF6 /* UIBarButtonItem+KSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+KSExtension.m"; sourceTree = "<group>"; };
 		3CF058861C85C04B008DD878 /* KSWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF0588C1C85C04B008DD878 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CF0588D1C85C04B008DD878 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				3CF058AB1C85D3C0008DD878 /* UIView+KSExtension.m */,
 				3CFD70671C8EF49A00AE4DEC /* KSTitleButton.h */,
 				3CFD70681C8EF49A00AE4DEC /* KSTitleButton.m */,
+				3CEF4D5D1C928F8300166CF6 /* UIBarButtonItem+KSExtension.h */,
+				3CEF4D5E1C928F8300166CF6 /* UIBarButtonItem+KSExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 				3CFD70631C8EF3F000AE4DEC /* KSTabBar.m in Sources */,
 				3CF058971C85C04B008DD878 /* KSWeibo.xcdatamodeld in Sources */,
 				3CF058A51C85C830008DD878 /* KSTabBarController.m in Sources */,
+				3CEF4D5F1C928F8300166CF6 /* UIBarButtonItem+KSExtension.m in Sources */,
 				3CF058AF1C85D609008DD878 /* main.m in Sources */,
 				3CFD70691C8EF49A00AE4DEC /* KSTitleButton.m in Sources */,
 				3CF0588E1C85C04B008DD878 /* AppDelegate.m in Sources */,
