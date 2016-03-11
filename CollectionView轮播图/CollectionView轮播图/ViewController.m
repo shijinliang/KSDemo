@@ -20,9 +20,12 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor greenColor];
-    
-    CollectionImageView *view = [[CollectionImageView alloc]initWithFrame:CGRectMake(0, 100, ScreenSize.width, 300)];
+    NSArray *images = @[@"icc1",@"icc2",@"icc3",@"icc4",@"icc5"];
+    CollectionImageView *view = [[CollectionImageView alloc]initWithFrame:CGRectMake(0, 100, ScreenSize.width, 300) imageArray:images selectImageBlock:^(NSInteger index) {
+        NSLog(@"点击的是第%d个",index);
+    }];
     [self.view addSubview:view];
+    self.navigationItem.title = @"Collection实现轮播图";
 }
 
 - (void)didReceiveMemoryWarning {

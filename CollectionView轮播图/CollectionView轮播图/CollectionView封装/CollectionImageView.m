@@ -9,21 +9,29 @@
 #import "CollectionImageView.h"
 #import "CollectionImageCell.h"
 
+#define SELF_WIDTH self.frame.size.width
+#define SELF_HEIGHT self.frame.size.height
+//collection 组数，正常情况下足够，没人闲得无聊一直滑滑滑，自动滚动可以在nextPage函数调用一下resetIndexPath
 static NSInteger const SectionCount = 50;
 @interface CollectionImageView()<UICollectionViewDelegate, UICollectionViewDataSource>
-
+@property (nonatomic, copy)selectImageBlock block;
+@property (nonatomic, strong)NSArray *imageArray;
 @property (nonatomic, strong)UICollectionView *collectionView;
+@property (nonatomic, strong)UIPageControl *pageCtrl;
+@property (nonatomic, strong)NSTimer *timer;
 @end
 @implementation CollectionImageView
 
-#pragma mark - LifeCycle Method
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame imageArray:(NSArray *)imageArray selectImageBlock:(selectImageBlock) block
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.block = block;
+        self.imageArray = imageArray;
         [self addSubview:self.collectionView];
-        
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:SectionCount/2] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+        [self addSubview:self.pageCtrl];
+        [self addTimer];
     }
     return self;
 }
@@ -42,8 +50,66 @@ static NSInteger const SectionCount = 50;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CollectionImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionImageCell" forIndexPath:indexPath];
-    cell.imageName = [NSString stringWithFormat:@"icc%ld",indexPath.row + 1];
+    cell.imageName = self.imageArray[indexPath.row];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.block(indexPath.row);
+}
+
+#pragma maek - scrollView delegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self removeTimer];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self addTimer];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    self.pageCtrl.currentPage = (NSInteger)(scrollView.contentOffset.x / scrollView.frame.size.width + 0.5) % self.imageArray.count;
+}
+
+#pragma mark - private Method
+- (void)addTimer
+{
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+}
+
+//重算位置，永远使用中间的那组轮播,手滑考虑过这个，不过有bug。
+- (NSIndexPath *)resetIndexPath
+{
+    NSIndexPath *currentPath = [[self.collectionView indexPathsForVisibleItems] lastObject];
+    NSIndexPath *path = [NSIndexPath indexPathForRow:currentPath.row inSection:SectionCount/2];
+    [self.collectionView scrollToItemAtIndexPath:path atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+    return path;
+}
+
+- (void)nextPage
+{
+    NSIndexPath *currentPath =  [self resetIndexPath];
+    //NSIndexPath *currentPath = [[self.collectionView indexPathsForVisibleItems] lastObject];
+    //计算下一个位置
+    NSInteger nextRow = currentPath.row + 1;
+    NSInteger nextSection = currentPath.section;
+    if (nextRow == [self.imageArray count]) {
+        nextRow = 0;
+        nextSection ++;
+    }
+    NSIndexPath *nextIndexPath = [NSIndexPath indexPathForRow:nextRow inSection:nextSection];
+    [self.collectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
+}
+
+- (void)removeTimer
+{
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 #pragma mark - 懒加载
@@ -60,10 +126,21 @@ static NSInteger const SectionCount = 50;
         _collectionView.dataSource = self;
         _collectionView.pagingEnabled = YES;
         _collectionView.showsHorizontalScrollIndicator = NO;
-        //[_collectionView registerNib:[UINib nibWithNibName:@"CollectionImageCell" bundle:nil] forCellWithReuseIdentifier:@"CollectionImageCell"];
         [_collectionView registerClass:[CollectionImageCell class] forCellWithReuseIdentifier:@"CollectionImageCell"];
     }
     return _collectionView;
+}
+
+- (UIPageControl *)pageCtrl
+{
+    if (!_pageCtrl) {
+        _pageCtrl = [[UIPageControl alloc]initWithFrame:CGRectMake((SELF_WIDTH - 100) * 0.5f, SELF_HEIGHT - 40, 100, 20)];
+        _pageCtrl.numberOfPages = [self.imageArray count];
+        _pageCtrl.currentPage = 0;
+        _pageCtrl.currentPageIndicatorTintColor = [UIColor redColor];
+        _pageCtrl.pageIndicatorTintColor = [UIColor yellowColor];
+    }
+    return _pageCtrl;
 }
 
 @end
