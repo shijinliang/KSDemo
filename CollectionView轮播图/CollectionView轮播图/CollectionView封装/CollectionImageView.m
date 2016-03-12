@@ -68,13 +68,20 @@ static NSInteger const SectionCount = 50;
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self addTimer];
+    //这个位置是你拖动结束后调用一次
+    self.pageCtrl.currentPage = (NSInteger)(scrollView.contentOffset.x / scrollView.frame.size.width + 0.5) % self.imageArray.count;
 }
-
+/* 
+ *这个方法只要scrollView一滑动就会调用很多次,虽然没有创建东西，但是感觉上不太爽
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     self.pageCtrl.currentPage = (NSInteger)(scrollView.contentOffset.x / scrollView.frame.size.width + 0.5) % self.imageArray.count;
 }
-
+ */
+-(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{//这个位置是定时器让它滑动结束后调用一次
+    self.pageCtrl.currentPage = (NSInteger)(scrollView.contentOffset.x / scrollView.frame.size.width + 0.5) % self.imageArray.count;
+}
 #pragma mark - private Method
 - (void)addTimer
 {
