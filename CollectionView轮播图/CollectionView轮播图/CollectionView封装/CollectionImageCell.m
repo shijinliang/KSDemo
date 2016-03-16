@@ -7,6 +7,7 @@
 //
 
 #import "CollectionImageCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface CollectionImageCell()
 @property (nonatomic, strong) UIImageView *imageView;
@@ -28,7 +29,7 @@
 - (void)setImageName:(NSString *)imageName
 {
     _imageName = imageName;
-    self.imageView.image = [UIImage imageNamed:imageName];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:@"http://m1.dwstatic.com/mbox/article_img/toutiao_6546d9e4e8aa8dcbcf9a7518fcebf037.jpg"] placeholderImage:[UIImage imageNamed:@"icc1"]];
 }
 
 - (UIImageView *)imageView
