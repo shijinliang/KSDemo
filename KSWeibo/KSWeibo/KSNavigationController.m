@@ -26,7 +26,19 @@
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
+    NSString *title = @"返回";
+    if (self.childViewControllers.count == 1) {
+        title = [self.childViewControllers firstObject].title;
+    }
+    if (self.childViewControllers.count) {
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem initBackWithImageName:@"navigationbar_back_withtext" hightImageName:@"navigationbar_back_withtext_highlighted" target:self action:@selector(back) title:title];
+    }
     [super pushViewController:viewController animated:animated];
+}
+
+- (void)back
+{
+    [self popViewControllerAnimated:YES];
 }
 
 

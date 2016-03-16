@@ -9,6 +9,7 @@
 #import "KSTabBarController.h"
 #import "KSTabBar.h"
 #import "KSHomeViewCtrl.h"
+#import "KSNavigationController.h"
 
 @interface KSTabBarController()<KSTabBarDelegate>
 
@@ -28,6 +29,7 @@
     UIViewController *vc2 = [[UIViewController alloc] init];
     [self addChildViewController:vc2 imageName:@"tabbar_message_center" title:@"消息"];
     UIViewController *vc3 = [[UIViewController alloc] init];
+    vc3.title = @"daasdsa";
     [self addChildViewController:vc3 imageName:@"tabbar_discover" title:@"发现"];
     UIViewController *vc4 = [[UIViewController alloc] init];
     [self addChildViewController:vc4 imageName:@"tabbar_profile" title:@"我"];
@@ -42,8 +44,8 @@
     childController.tabBarItem.image = [UIImage imageNamed:imageName];
     childController.tabBarItem.selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_selected",imageName]];
     childController.tabBarItem.title = title;
-    
-    [self addChildViewController:[[UINavigationController alloc]initWithRootViewController:childController]];
+    KSNavigationController *naviCtrl = [[KSNavigationController alloc]initWithRootViewController:childController];
+    [self addChildViewController:naviCtrl];
 }
 
 #pragma mark - KSTabBar delegate
