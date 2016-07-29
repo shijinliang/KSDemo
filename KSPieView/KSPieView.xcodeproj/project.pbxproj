@@ -1,0 +1,324 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C165A191C914AB500A27806 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C165A181C914AB500A27806 /* main.m */; };
+		3C165A1C1C914AB500A27806 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C165A1B1C914AB500A27806 /* AppDelegate.m */; };
+		3C165A1F1C914AB500A27806 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C165A1E1C914AB500A27806 /* ViewController.m */; };
+		3C165A221C914AB500A27806 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C165A201C914AB500A27806 /* Main.storyboard */; };
+		3C165A251C914AB500A27806 /* KSPieView.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C165A231C914AB500A27806 /* KSPieView.xcdatamodeld */; };
+		3C165A271C914AB500A27806 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C165A261C914AB500A27806 /* Assets.xcassets */; };
+		3C165A2A1C914AB500A27806 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C165A281C914AB500A27806 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3C165A141C914AB500A27806 /* KSPieView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSPieView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C165A181C914AB500A27806 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3C165A1A1C914AB500A27806 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3C165A1B1C914AB500A27806 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3C165A1D1C914AB500A27806 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3C165A1E1C914AB500A27806 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3C165A211C914AB500A27806 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3C165A241C914AB500A27806 /* KSPieView.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KSPieView.xcdatamodel; sourceTree = "<group>"; };
+		3C165A261C914AB500A27806 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3C165A291C914AB500A27806 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3C165A2B1C914AB500A27806 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3C165A111C914AB500A27806 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3C165A0B1C914AB500A27806 = {
+			isa = PBXGroup;
+			children = (
+				3C165A161C914AB500A27806 /* KSPieView */,
+				3C165A151C914AB500A27806 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3C165A151C914AB500A27806 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3C165A141C914AB500A27806 /* KSPieView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3C165A161C914AB500A27806 /* KSPieView */ = {
+			isa = PBXGroup;
+			children = (
+				3C165A1A1C914AB500A27806 /* AppDelegate.h */,
+				3C165A1B1C914AB500A27806 /* AppDelegate.m */,
+				3C165A1D1C914AB500A27806 /* ViewController.h */,
+				3C165A1E1C914AB500A27806 /* ViewController.m */,
+				3C165A201C914AB500A27806 /* Main.storyboard */,
+				3C165A261C914AB500A27806 /* Assets.xcassets */,
+				3C165A281C914AB500A27806 /* LaunchScreen.storyboard */,
+				3C165A2B1C914AB500A27806 /* Info.plist */,
+				3C165A231C914AB500A27806 /* KSPieView.xcdatamodeld */,
+				3C165A171C914AB500A27806 /* Supporting Files */,
+			);
+			path = KSPieView;
+			sourceTree = "<group>";
+		};
+		3C165A171C914AB500A27806 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3C165A181C914AB500A27806 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3C165A131C914AB500A27806 /* KSPieView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C165A2E1C914AB500A27806 /* Build configuration list for PBXNativeTarget "KSPieView" */;
+			buildPhases = (
+				3C165A101C914AB500A27806 /* Sources */,
+				3C165A111C914AB500A27806 /* Frameworks */,
+				3C165A121C914AB500A27806 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KSPieView;
+			productName = KSPieView;
+			productReference = 3C165A141C914AB500A27806 /* KSPieView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3C165A0C1C914AB500A27806 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = kamy;
+				TargetAttributes = {
+					3C165A131C914AB500A27806 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 3C165A0F1C914AB500A27806 /* Build configuration list for PBXProject "KSPieView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3C165A0B1C914AB500A27806;
+			productRefGroup = 3C165A151C914AB500A27806 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3C165A131C914AB500A27806 /* KSPieView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3C165A121C914AB500A27806 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C165A2A1C914AB500A27806 /* LaunchScreen.storyboard in Resources */,
+				3C165A271C914AB500A27806 /* Assets.xcassets in Resources */,
+				3C165A221C914AB500A27806 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3C165A101C914AB500A27806 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C165A1F1C914AB500A27806 /* ViewController.m in Sources */,
+				3C165A251C914AB500A27806 /* KSPieView.xcdatamodeld in Sources */,
+				3C165A1C1C914AB500A27806 /* AppDelegate.m in Sources */,
+				3C165A191C914AB500A27806 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3C165A201C914AB500A27806 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3C165A211C914AB500A27806 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3C165A281C914AB500A27806 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3C165A291C914AB500A27806 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3C165A2C1C914AB500A27806 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3C165A2D1C914AB500A27806 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3C165A2F1C914AB500A27806 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KSPieView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kamy.study.KSPieView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3C165A301C914AB500A27806 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KSPieView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kamy.study.KSPieView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C165A0F1C914AB500A27806 /* Build configuration list for PBXProject "KSPieView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C165A2C1C914AB500A27806 /* Debug */,
+				3C165A2D1C914AB500A27806 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3C165A2E1C914AB500A27806 /* Build configuration list for PBXNativeTarget "KSPieView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C165A2F1C914AB500A27806 /* Debug */,
+				3C165A301C914AB500A27806 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3C165A231C914AB500A27806 /* KSPieView.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3C165A241C914AB500A27806 /* KSPieView.xcdatamodel */,
+			);
+			currentVersion = 3C165A241C914AB500A27806 /* KSPieView.xcdatamodel */;
+			path = KSPieView.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3C165A0C1C914AB500A27806 /* Project object */;
+}
