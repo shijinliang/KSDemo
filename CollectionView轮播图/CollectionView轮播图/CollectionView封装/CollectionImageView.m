@@ -39,7 +39,7 @@ static NSInteger const SectionCount = 50;
 #pragma mark - CollectionView Delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 5;
+    return self.imageArray.count;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -56,7 +56,10 @@ static NSInteger const SectionCount = 50;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(self.block)
+    {
     self.block(indexPath.row);
+    }
 }
 
 #pragma maek - scrollView delegate
