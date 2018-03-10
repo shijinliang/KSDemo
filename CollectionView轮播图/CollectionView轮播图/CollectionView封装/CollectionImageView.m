@@ -29,7 +29,9 @@ static NSInteger const SectionCount = 50;
         self.block = block;
         self.imageArray = imageArray;
         [self addSubview:self.collectionView];
-        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:SectionCount/2] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+        if (self.imageArray.count > 0) {
+            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:SectionCount/2] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+        }
         [self addSubview:self.pageCtrl];
         [self addTimer];
     }
@@ -88,6 +90,9 @@ static NSInteger const SectionCount = 50;
 #pragma mark - private Method
 - (void)addTimer
 {
+    if (self.timer) {
+        [self removeTimer];
+    }
     self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
