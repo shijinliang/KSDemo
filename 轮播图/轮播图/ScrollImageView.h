@@ -13,6 +13,11 @@
 -(void)scrollImageView:(ScrollImageView *)srollImageView didTapImageView:(UIImageView *)image atIndex:(NSInteger)index;
 @end
 @interface ScrollImageView : UIView
-@property (nonatomic,unsafe_unretained)id<ScrollImageViewDelegate> delegate;
+@property (nonatomic,weak)id<ScrollImageViewDelegate> delegate;
 -(instancetype)initWithFrame:(CGRect)frame andPictureUrls:(NSArray *)urls andPlaceHolderImages:(NSArray *)images;
+/**
+ 需要在使用地方（比如ViewController）销毁的时候，显示调用此方法，否则会有内存泄漏
+ */
+- (void)releaseTheScrollImageView;
+
 @end

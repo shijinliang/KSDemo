@@ -21,4 +21,10 @@ typedef void(^selectImageBlock)(NSInteger index);
  *  @return
  */
 - (instancetype)initWithFrame:(CGRect)frame imageArray:(NSArray *)imageArray selectImageBlock:(selectImageBlock) block;
+
+/**
+ 需要在使用地方（比如ViewController）销毁的时候，显示调用此方法，否则会有内存泄漏
+ */
+- (void)releaseTheCollectionImageView;
+
 @end

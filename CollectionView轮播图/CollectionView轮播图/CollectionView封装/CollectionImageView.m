@@ -38,6 +38,10 @@ static NSInteger const SectionCount = 50;
     return self;
 }
 
+- (void)releaseTheCollectionImageView {
+    [self removeTimer];
+}
+
 #pragma mark - CollectionView Delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {

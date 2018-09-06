@@ -40,6 +40,10 @@
     return self;
 }
 
+- (void)releaseTheScrollImageView {
+    [self.timer invalidate];
+    self.timer = nil;
+}
 
 #pragma private Method
 - (void)initScrollViewImage
